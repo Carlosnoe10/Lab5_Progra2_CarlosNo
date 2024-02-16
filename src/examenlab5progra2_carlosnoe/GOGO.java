@@ -6,7 +6,7 @@ package examenlab5progra2_carlosnoe;
 
 /**
  *
- * @author cd507
+ * @author cd507 Asiento F2 Silla1
  */
 public class GOGO extends javax.swing.JFrame {
 
@@ -32,11 +32,11 @@ public class GOGO extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 770, Short.MAX_VALUE)
+            .addGap(0, 807, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 325, Short.MAX_VALUE)
+            .addGap(0, 422, Short.MAX_VALUE)
         );
 
         pack();

@@ -16,6 +16,7 @@ import javax.swing.JTable;
 public final class GOGO extends javax.swing.JFrame {
 
     ArrayList<Usuarios> Usus = new ArrayList();
+    ArrayList<Tramites> Trans = new ArrayList();
 
     public GOGO() {
         initComponents();
@@ -25,7 +26,7 @@ public final class GOGO extends javax.swing.JFrame {
 
     }
 
-    public void VerificadorDeCuenta() {
+    public void LlenadoTablaInfo() {
         javax.swing.table.DefaultTableModel MODELITO = new javax.swing.table.DefaultTableModel();
         MODELITO.addColumn("Nombre Completo");
         MODELITO.addColumn("No. Identidad");
@@ -40,7 +41,24 @@ public final class GOGO extends javax.swing.JFrame {
             }
         }
         JTable_InformacionCiviles.setModel(MODELITO);
-        
+    }
+
+    public void VerificadorDeCuenta() {
+        javax.swing.table.DefaultTableModel MODELITO = new javax.swing.table.DefaultTableModel();
+        MODELITO.addColumn("Nombre");
+        MODELITO.addColumn("Descripcion");
+        MODELITO.addColumn("Fecha");
+        MODELITO.addColumn("Numero Identidad");
+        for (int i = 0; i < Trans.size(); i++) {
+
+            MODELITO.addRow(
+                    new Object[]{
+                        Trans.get(i).getNombre(), Trans.get(i).getDescripcion(), Trans.get(i).getFechaSoli(), Trans.get(i).getNumeroI()
+                    });
+
+        }
+        JTable_Tramites.setModel(MODELITO);
+
     }
 
     public void Agregador() {
@@ -52,6 +70,8 @@ public final class GOGO extends javax.swing.JFrame {
         Usus.add(new Civiles("Javier", "Prades", "Top3", new Date(2000, 9, 21), "Masculino", "Comayagua"));
         Usus.add(new Civiles("Xiomi", "Zelaya", "VergaChina", new Date(1959, 1, 5), "Femenino", "Cortes"));
 
+        Trans.add(new Tramites(Usus.get(1).getNombre(), "me robaron el carro por la cerro", new Date(1990, 12, 24), Usus.get(1).getNumeroIdentidad()));
+        Trans.add(new Tramites(Usus.get(4).getNombre(), "secaeron", new Date(2004, 12, 1), Usus.get(4).getNumeroIdentidad()));
     }
 
     /**
@@ -73,16 +93,21 @@ public final class GOGO extends javax.swing.JFrame {
         MenuEmpleado = new javax.swing.JFrame();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jInternalFrame1 = new javax.swing.JInternalFrame();
-        Label_Nombre = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         JTable_InformacionCiviles = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         JTable_Tramites = new javax.swing.JTable();
-        JBottom_CerrarSesion = new javax.swing.JButton();
         jInternalFrame2 = new javax.swing.JInternalFrame();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        JBottom_CerrarSesion = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        Label_Nombre = new javax.swing.JLabel();
 
         Login.setBackground(new java.awt.Color(0, 0, 0));
         Login.setMinimumSize(new java.awt.Dimension(550, 500));
@@ -140,11 +165,6 @@ public final class GOGO extends javax.swing.JFrame {
 
         jInternalFrame1.setVisible(true);
 
-        Label_Nombre.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
-
-        jLabel5.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
-        jLabel5.setText("Bienvenido: ");
-
         jLabel4.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         jLabel4.setText("Informacion de los Civiles:");
 
@@ -179,6 +199,84 @@ public final class GOGO extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(JTable_Tramites);
 
+        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                        .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Informacion Civiles", jInternalFrame1);
+
+        jInternalFrame2.setVisible(true);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel7.setText("jLabel7");
+
+        jTextField1.setText("jTextField1");
+
+        jLabel8.setText("jLabel8");
+
+        jTextField2.setText("jTextField2");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jInternalFrame2Layout = new javax.swing.GroupLayout(jInternalFrame2.getContentPane());
+        jInternalFrame2.getContentPane().setLayout(jInternalFrame2Layout);
+        jInternalFrame2Layout.setHorizontalGroup(
+            jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame2Layout.createSequentialGroup()
+                .addGroup(jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 427, Short.MAX_VALUE))
+        );
+        jInternalFrame2Layout.setVerticalGroup(
+            jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame2Layout.createSequentialGroup()
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 132, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Modificacion Civiles", jInternalFrame2);
+
         JBottom_CerrarSesion.setBackground(new java.awt.Color(204, 0, 0));
         JBottom_CerrarSesion.setText("Cerrar Sesion");
         JBottom_CerrarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -187,78 +285,40 @@ public final class GOGO extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
-        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
-        jInternalFrame1Layout.setHorizontalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
-                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                        .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Label_Nombre)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(JBottom_CerrarSesion)))
-                .addContainerGap())
-        );
-        jInternalFrame1Layout.setVerticalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Label_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(JBottom_CerrarSesion)))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
-        );
+        jLabel5.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
+        jLabel5.setText("Bienvenido: ");
 
-        jTabbedPane1.addTab("Informacion Civiles", jInternalFrame1);
-
-        jInternalFrame2.setVisible(true);
-
-        javax.swing.GroupLayout jInternalFrame2Layout = new javax.swing.GroupLayout(jInternalFrame2.getContentPane());
-        jInternalFrame2.getContentPane().setLayout(jInternalFrame2Layout);
-        jInternalFrame2Layout.setHorizontalGroup(
-            jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jInternalFrame2Layout.setVerticalGroup(
-            jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Modificacion Civiles", jInternalFrame2);
+        Label_Nombre.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
 
         javax.swing.GroupLayout MenuEmpleadoLayout = new javax.swing.GroupLayout(MenuEmpleado.getContentPane());
         MenuEmpleado.getContentPane().setLayout(MenuEmpleadoLayout);
         MenuEmpleadoLayout.setHorizontalGroup(
             MenuEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
+            .addGroup(MenuEmpleadoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Label_Nombre)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(JBottom_CerrarSesion)
+                .addContainerGap())
         );
         MenuEmpleadoLayout.setVerticalGroup(
             MenuEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
+            .addGroup(MenuEmpleadoLayout.createSequentialGroup()
+                .addGroup(MenuEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MenuEmpleadoLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(MenuEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Label_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuEmpleadoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(JBottom_CerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane1)
+                .addGap(134, 134, 134))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -305,6 +365,7 @@ public final class GOGO extends javax.swing.JFrame {
                 MenuEmpleado.setBounds(Login.getX(), Login.getY(), Login.getWidth(), Login.getHeight());
                 Label_Nombre.setText(Usus.get(Numero).getNombre());
                 VerificadorDeCuenta();
+                LlenadoTablaInfo();
             }
         } else {
             JOptionPane.showMessageDialog(Login, "Nombre o Contraseña invalidas");
@@ -321,6 +382,10 @@ public final class GOGO extends javax.swing.JFrame {
         JT_NombreCompleto.setText("");
         JPass_Contrasenya.setText("");
     }//GEN-LAST:event_JBottom_CerrarSesionActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -369,6 +434,7 @@ public final class GOGO extends javax.swing.JFrame {
     private javax.swing.JFrame Login;
     private javax.swing.JFrame MenuEmpleado;
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JLabel jLabel1;
@@ -377,8 +443,12 @@ public final class GOGO extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

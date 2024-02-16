@@ -123,7 +123,7 @@ public final class GOGO extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Login.setVisible(false);
+        
         boolean Key1 = false;
         boolean Key2 = false;
         String PreNombre = "";
@@ -139,10 +139,11 @@ public final class GOGO extends javax.swing.JFrame {
             }
         }
 
-        if ((Key1 = true) && (Key2 = true)) {
+        if ((Key1 == true) && (Key2 == true)) {
             System.out.println("a");
+            Login.setVisible(false);
         }else{
-            JOptionPane.showInputDialog(Login, "Nombre o Contraseña invalidas");
+            JOptionPane.showMessageDialog(Login, "Nombre o Contraseña invalidas");
             JT_NombreCompleto.setText("");
             JPass_Contrasenya.setText("");
         }

@@ -12,13 +12,17 @@ public class Empleados extends Usuarios{
         super(Nombre, Apellido, Contrasenya, FechaNacimiento, Sexo, Departamento, NumeroIdentidad);
     }
 
-    public Empleados(String Carrera, String PuestoLaboral, int AnioTrabaj, String Nombre, String Apellido, String Contrasenya, Date FechaNacimiento, String Sexo, String Departamento, int NumeroIdentidad) {
-        super(Nombre, Apellido, Contrasenya, FechaNacimiento, Sexo, Departamento, NumeroIdentidad);
+    public Empleados(String Carrera, String PuestoLaboral, int AnioTrabaj, String Nombre, String Apellido, String Contrasenya, Date FechaNacimiento, String Sexo, String Departamento) {
+        super(Nombre, Apellido, Contrasenya, FechaNacimiento, Sexo, Departamento);
         this.Carrera = Carrera;
         this.PuestoLaboral = PuestoLaboral;
         this.AnioTrabaj = AnioTrabaj;
     }
 
+    
+    
+    
+    
     public String getCarrera() {
         return Carrera;
     }
@@ -107,7 +111,10 @@ public class Empleados extends Usuarios{
                 + "AnioTrabaj= " + AnioTrabaj ;
     }
     
-    
+    @Override
+    public int NumeroDeIdentidad(){
+        return 0;
+    }
     
     
 }

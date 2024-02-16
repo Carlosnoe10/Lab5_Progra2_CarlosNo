@@ -2,6 +2,7 @@ package examenlab5progra2_carlosnoe;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 public class Civiles extends Usuarios{
     ArrayList<Tramites>tramites= new ArrayList();
@@ -10,6 +11,12 @@ public class Civiles extends Usuarios{
     public Civiles(String Nombre, String Apellido, String Contrasenya, Date FechaNacimiento, String Sexo, String Departamento, int NumeroIdentidad) {
         super(Nombre, Apellido, Contrasenya, FechaNacimiento, Sexo, Departamento, NumeroIdentidad);
     }
+
+    public Civiles(String Nombre, String Apellido, String Contrasenya, Date FechaNacimiento, String Sexo, String Departamento) {
+        super(Nombre, Apellido, Contrasenya, FechaNacimiento, Sexo, Departamento);
+    }
+    
+    
 
     public ArrayList<Tramites> getTramites() {
         return tramites;
@@ -82,5 +89,15 @@ public class Civiles extends Usuarios{
                 
     }
     
+    @Override
+    public int NumeroDeIdentidad(){
+        Random random= new Random();
+
+     return 0;           
+    }
     
+    //Numero de identidad Primeros 2 numeros == 01 si es Francsico Morazan, 02 si es Cortes 03 si es comayagua
+    //Segundos 2 numeros random del 01 al 28 si es de Franscisco Morazan, 01 y 12 si es cortes y 01 y 21 si es Comayagua
+    // Segunos Cuartro digitos el Anio
+    // y los ultimos 5 son random se debe validar que el numero no sea igual al entre otros
 }

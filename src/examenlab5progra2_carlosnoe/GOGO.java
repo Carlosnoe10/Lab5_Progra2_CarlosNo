@@ -4,17 +4,28 @@
  */
 package examenlab5progra2_carlosnoe;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  *
- * @author cd507 Asiento F2 Silla1
+ * @author cd507 +++Asiento F2 Silla1 ++++
  */
 public class GOGO extends javax.swing.JFrame {
 
-    /**
-     * Creates new form GOGO
-     */
+    ArrayList<Usuarios>Usus= new ArrayList(); 
+    
     public GOGO() {
         initComponents();
+    }
+
+    public void Agregador() {
+        Usus.add(new Empleados("Marketing", "Community Manager", 2, "Jose", "Gomez Gomez", "NextSummer", new Date(2000, 6, 23), "Femenino", "Cortes"));
+        Usus.add(new Civiles("Cristiano", "Ronaldo", "elbichosiu", new Date(1986, 7, 7), "Masculino", "Fransciso Morazan"));
+        Usus.add(new Empleados("Disenio Grafico", "Conserge", 10, "Amador", "Benitez", "12345678", new Date(1999, 12, 4), "Masculino", "Comayagua"));
+        Usus.add(new Civiles("Evangelina", "Hernandes", "bebesitayo", new Date(2004, 5, 20), "Femenino", "Cortes"));
+        
+    
     }
 
     /**

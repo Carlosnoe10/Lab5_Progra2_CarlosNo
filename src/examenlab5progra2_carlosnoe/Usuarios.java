@@ -2,7 +2,7 @@ package examenlab5progra2_carlosnoe;
 
 import java.util.Date;
 
-public class Usuarios {
+abstract public class Usuarios {
 
     public String Nombre;
     public String Apellido;
@@ -22,6 +22,19 @@ public class Usuarios {
         this.NumeroIdentidad = NumeroIdentidad;
     }
 
+    public Usuarios(String Nombre, String Apellido, String Contrasenya, Date FechaNacimiento, String Sexo, String Departamento) {
+        this.Nombre = Nombre;
+        this.Apellido = Apellido;
+        this.Contrasenya = Contrasenya;
+        this.FechaNacimiento = FechaNacimiento;
+        this.Sexo = Sexo;
+        this.Departamento = Departamento;
+    }
+
+    public int NumeroDeIdentidad(){
+        return 0;
+    }
+    
     public String getNombre() {
         return Nombre;
     }

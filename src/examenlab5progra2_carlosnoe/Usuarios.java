@@ -3,6 +3,7 @@ package examenlab5progra2_carlosnoe;
 import java.util.Date;
 
 public class Usuarios {
+
     public String Nombre;
     public String Apellido;
     public String Contrasenya;
@@ -79,10 +80,13 @@ public class Usuarios {
 
     @Override
     public String toString() {
-        return "Usuarios{" + "Nombre=" + Nombre + ", Apellido=" + Apellido + ", Contrasenya=" + Contrasenya + ", FechaNacimiento=" + FechaNacimiento + ", Sexo=" + Sexo + ", Departamento=" + Departamento + ", NumeroIdentidad=" + NumeroIdentidad + '}';
+        return "Nombre= " + Nombre + "\n"
+                + "Apellido= " + Apellido + "\n"
+                + "Contrasenya= " + Contrasenya + "\n"
+                + "FechaNacimiento= " + FechaNacimiento + "\n"
+                + "Sexo= " + Sexo + ""
+                + "Departamento= " + Departamento + "\n"
+                + "NumeroIdentidad= " + NumeroIdentidad;
     }
-    
-    
-            
-    
+
 }

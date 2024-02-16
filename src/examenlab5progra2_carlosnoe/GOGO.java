@@ -6,17 +6,25 @@ package examenlab5progra2_carlosnoe;
 
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author cd507 +++Asiento F2 Silla1 ++++
  */
-public class GOGO extends javax.swing.JFrame {
+public final class GOGO extends javax.swing.JFrame {
 
-    ArrayList<Usuarios>Usus= new ArrayList(); 
-    
+    ArrayList<Usuarios> Usus = new ArrayList();
+
     public GOGO() {
         initComponents();
+        Agregador();
+        Login.setVisible(true);
+
+    }
+
+    public void VerificadorDeCuenta() {
+
     }
 
     public void Agregador() {
@@ -24,8 +32,7 @@ public class GOGO extends javax.swing.JFrame {
         Usus.add(new Civiles("Cristiano", "Ronaldo", "elbichosiu", new Date(1986, 7, 7), "Masculino", "Fransciso Morazan"));
         Usus.add(new Empleados("Disenio Grafico", "Conserge", 10, "Amador", "Benitez", "12345678", new Date(1999, 12, 4), "Masculino", "Comayagua"));
         Usus.add(new Civiles("Evangelina", "Hernandes", "bebesitayo", new Date(2004, 5, 20), "Femenino", "Cortes"));
-        
-    
+
     }
 
     /**
@@ -37,21 +44,112 @@ public class GOGO extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Login = new javax.swing.JFrame();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        JPass_Contrasenya = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
+        JT_NombreCompleto = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+
+        Login.setBackground(new java.awt.Color(0, 0, 0));
+        Login.setMinimumSize(new java.awt.Dimension(550, 500));
+
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("LogIn");
+
+        jButton1.setText("Ingese");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel3.setText("Contraseña");
+
+        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel2.setText("Nombre Completo");
+
+        javax.swing.GroupLayout LoginLayout = new javax.swing.GroupLayout(Login.getContentPane());
+        Login.getContentPane().setLayout(LoginLayout);
+        LoginLayout.setHorizontalGroup(
+            LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(JT_NombreCompleto)
+            .addComponent(JPass_Contrasenya)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(LoginLayout.createSequentialGroup()
+                .addGap(183, 183, 183)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(221, Short.MAX_VALUE))
+        );
+        LoginLayout.setVerticalGroup(
+            LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LoginLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JT_NombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(JPass_Contrasenya, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(91, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 807, Short.MAX_VALUE)
+            .addGap(0, 466, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 422, Short.MAX_VALUE)
+            .addGap(0, 434, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Login.setVisible(false);
+        boolean Key1 = false;
+        boolean Key2 = false;
+        String PreNombre = "";
+        for (int i = 0; i < Usus.size(); i++) {
+            PreNombre = Usus.get(i).getNombre() + Usus.get(i).getApellido();
+            if (PreNombre.equals(JT_NombreCompleto.getText())) {
+                Key1 = true;
+            }
+        }
+        for (int i = 0; i < Usus.size(); i++) {
+            if (Usus.get(i).getContrasenya().equals(JPass_Contrasenya.getText())) {
+                Key2 = true;
+            }
+        }
+
+        if ((Key1 = true) && (Key2 = true)) {
+            System.out.println("a");
+        }else{
+            JOptionPane.showInputDialog(Login, "Nombre o Contraseña invalidas");
+            JT_NombreCompleto.setText("");
+            JPass_Contrasenya.setText("");
+        }
+        
+
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -83,11 +181,20 @@ public class GOGO extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GOGO().setVisible(true);
+                new GOGO().setVisible(false);
+
             }
+
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField JPass_Contrasenya;
+    private javax.swing.JTextField JT_NombreCompleto;
+    private javax.swing.JFrame Login;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

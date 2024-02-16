@@ -32,6 +32,9 @@ public final class GOGO extends javax.swing.JFrame {
         Usus.add(new Civiles("Cristiano", "Ronaldo", "elbichosiu", new Date(1986, 7, 7), "Masculino", "Fransciso Morazan"));
         Usus.add(new Empleados("Disenio Grafico", "Conserge", 10, "Amador", "Benitez", "12345678", new Date(1999, 12, 4), "Masculino", "Comayagua"));
         Usus.add(new Civiles("Evangelina", "Hernandes", "bebesitayo", new Date(2004, 5, 20), "Femenino", "Cortes"));
+        Usus.add(new Civiles("Pedro", "Capo", "Concalma", new Date(2003, 7, 1), "Maculino", "Francisco Morazan"));
+        Usus.add(new Civiles("Javier", "Prades", "Top3", new Date(2000, 9, 21), "Masculino", "Comayagua"));
+        Usus.add(new Civiles("Xiomi", "Zelaya", "VergaChina", new Date(1959, 1, 5), "Femenino", "Cortes"));
 
     }
 
@@ -51,6 +54,19 @@ public final class GOGO extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         JT_NombreCompleto = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        MenuEmpleado = new javax.swing.JFrame();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
+        Label_Nombre = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JTable_InformacionCiviles = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        JTable_Tramites = new javax.swing.JTable();
+        JBottom_CerrarSesion = new javax.swing.JButton();
+        jInternalFrame2 = new javax.swing.JInternalFrame();
 
         Login.setBackground(new java.awt.Color(0, 0, 0));
         Login.setMinimumSize(new java.awt.Dimension(550, 500));
@@ -106,6 +122,129 @@ public final class GOGO extends javax.swing.JFrame {
                 .addContainerGap(91, Short.MAX_VALUE))
         );
 
+        jInternalFrame1.setVisible(true);
+
+        Label_Nombre.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
+        jLabel5.setText("Bienvenido: ");
+
+        jLabel4.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
+        jLabel4.setText("Informacion de los Civiles:");
+
+        JTable_InformacionCiviles.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        JTable_InformacionCiviles.setAutoscrolls(false);
+        JTable_InformacionCiviles.setShowGrid(true);
+        jScrollPane1.setViewportView(JTable_InformacionCiviles);
+
+        jLabel6.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
+        jLabel6.setText("Tramites:");
+
+        JTable_Tramites.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(JTable_Tramites);
+
+        JBottom_CerrarSesion.setBackground(new java.awt.Color(204, 0, 0));
+        JBottom_CerrarSesion.setText("Cerrar Sesion");
+        JBottom_CerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBottom_CerrarSesionActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
+                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                        .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Label_Nombre)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JBottom_CerrarSesion)))
+                .addContainerGap())
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Label_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(JBottom_CerrarSesion)))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(84, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Informacion Civiles", jInternalFrame1);
+
+        jInternalFrame2.setVisible(true);
+
+        javax.swing.GroupLayout jInternalFrame2Layout = new javax.swing.GroupLayout(jInternalFrame2.getContentPane());
+        jInternalFrame2.getContentPane().setLayout(jInternalFrame2Layout);
+        jInternalFrame2Layout.setHorizontalGroup(
+            jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jInternalFrame2Layout.setVerticalGroup(
+            jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Modificacion Civiles", jInternalFrame2);
+
+        javax.swing.GroupLayout MenuEmpleadoLayout = new javax.swing.GroupLayout(MenuEmpleado.getContentPane());
+        MenuEmpleado.getContentPane().setLayout(MenuEmpleadoLayout);
+        MenuEmpleadoLayout.setHorizontalGroup(
+            MenuEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
+        );
+        MenuEmpleadoLayout.setVerticalGroup(
+            MenuEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -123,10 +262,11 @@ public final class GOGO extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         boolean Key1 = false;
         boolean Key2 = false;
         String PreNombre = "";
+        int Numero = 0;
         for (int i = 0; i < Usus.size(); i++) {
             PreNombre = Usus.get(i).getNombre() + Usus.get(i).getApellido();
             if (PreNombre.equals(JT_NombreCompleto.getText())) {
@@ -136,21 +276,34 @@ public final class GOGO extends javax.swing.JFrame {
         for (int i = 0; i < Usus.size(); i++) {
             if (Usus.get(i).getContrasenya().equals(JPass_Contrasenya.getText())) {
                 Key2 = true;
+                Numero = i;
             }
         }
 
         if ((Key1 == true) && (Key2 == true)) {
-            System.out.println("a");
             Login.setVisible(false);
-        }else{
+            if (Usus.get(Numero) instanceof Civiles) {
+
+            } else {
+                MenuEmpleado.setVisible(true);
+                MenuEmpleado.setBounds(Login.getX(), Login.getY(), Login.getWidth(), Login.getHeight());
+                Label_Nombre.setText(Usus.get(Numero).getNombre());
+            }
+        } else {
             JOptionPane.showMessageDialog(Login, "Nombre o Contraseña invalidas");
             JT_NombreCompleto.setText("");
             JPass_Contrasenya.setText("");
         }
-        
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void JBottom_CerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBottom_CerrarSesionActionPerformed
+        MenuEmpleado.setVisible(false);
+        Login.setVisible(true);
+        JT_NombreCompleto.setText("");
+        JPass_Contrasenya.setText("");
+    }//GEN-LAST:event_JBottom_CerrarSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,12 +343,25 @@ public final class GOGO extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBottom_CerrarSesion;
     private javax.swing.JPasswordField JPass_Contrasenya;
     private javax.swing.JTextField JT_NombreCompleto;
+    private javax.swing.JTable JTable_InformacionCiviles;
+    private javax.swing.JTable JTable_Tramites;
+    private javax.swing.JLabel Label_Nombre;
     private javax.swing.JFrame Login;
+    private javax.swing.JFrame MenuEmpleado;
     private javax.swing.JButton jButton1;
+    private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }

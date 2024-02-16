@@ -26,6 +26,30 @@ public final class GOGO extends javax.swing.JFrame {
 
     }
 
+    public void LlenadoDeComboboxState() {
+        javax.swing.DefaultComboBoxModel Combo = new javax.swing.DefaultComboBoxModel<>();
+        Combo.addElement("Francisco Morazan");
+        Combo.addElement("Comayagua");
+        Combo.addElement("Cortes");
+        JCombo_State.setModel(Combo);
+    }
+
+    public void LLenadoDeComboxSex() {
+        javax.swing.DefaultComboBoxModel Combo = new javax.swing.DefaultComboBoxModel<>();
+        Combo.addElement("Masculino");
+        Combo.addElement("Femenino");
+        JCombo_Sex.setModel(Combo);
+    }
+
+    public void LlenadoDeComboBoxID() {
+        javax.swing.DefaultComboBoxModel Combo = new javax.swing.DefaultComboBoxModel<>();
+        for (int i = 0; i < Usus.size(); i++) {
+            Combo.addElement(Usus.get(i).getNumeroIdentidad());
+        }
+        JCombo_SelectorID.setModel(Combo);
+
+    }
+
     public void LlenadoTablaInfo() {
         javax.swing.table.DefaultTableModel MODELITO = new javax.swing.table.DefaultTableModel();
         MODELITO.addColumn("Nombre Completo");
@@ -110,11 +134,19 @@ public final class GOGO extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         JCombo_State = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
-        JT_Apellido = new javax.swing.JTextField();
+        JT_ApellidoMOD = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        JT_AnioMOD = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        JT_MesMOD = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        JT_DiaMOD = new javax.swing.JTextField();
+        BT_MOD = new javax.swing.JButton();
         JBottom_CerrarSesion = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         Label_Nombre = new javax.swing.JLabel();
+        MenuCivil = new javax.swing.JFrame();
 
         Login.setBackground(new java.awt.Color(0, 0, 0));
         Login.setMinimumSize(new java.awt.Dimension(550, 500));
@@ -213,7 +245,7 @@ public final class GOGO extends javax.swing.JFrame {
             .addGroup(jInternalFrame1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
                     .addComponent(jScrollPane1)
                     .addGroup(jInternalFrame1Layout.createSequentialGroup()
                         .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,11 +272,16 @@ public final class GOGO extends javax.swing.JFrame {
         jInternalFrame2.setVisible(true);
 
         JCombo_SelectorID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JCombo_SelectorID.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                JCombo_SelectorIDItemStateChanged(evt);
+            }
+        });
 
-        jLabel7.setFont(new java.awt.Font("Comic Sans MS", 3, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
         jLabel7.setText("Nombre: ");
 
-        jLabel8.setFont(new java.awt.Font("Comic Sans MS", 3, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
         jLabel8.setText("Contraseña: ");
 
         JT_ContraMOD.addActionListener(new java.awt.event.ActionListener() {
@@ -255,18 +292,35 @@ public final class GOGO extends javax.swing.JFrame {
 
         JCombo_Sex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel9.setFont(new java.awt.Font("Comic Sans MS", 3, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
         jLabel9.setText("Sexo: ");
 
-        jLabel10.setFont(new java.awt.Font("Comic Sans MS", 3, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
         jLabel10.setText("Departamento: ");
 
         JCombo_State.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel11.setFont(new java.awt.Font("Comic Sans MS", 3, 12)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
         jLabel11.setText("Apellido: ");
 
+        jLabel12.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
         jLabel12.setText("Fecha De Nacimiento");
+
+        jLabel13.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
+        jLabel13.setText("Año");
+
+        jLabel14.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
+        jLabel14.setText("Mes");
+
+        jLabel15.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
+        jLabel15.setText("Dia");
+
+        BT_MOD.setText("MOD");
+        BT_MOD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BT_MODActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jInternalFrame2Layout = new javax.swing.GroupLayout(jInternalFrame2.getContentPane());
         jInternalFrame2.getContentPane().setLayout(jInternalFrame2Layout);
@@ -278,23 +332,37 @@ public final class GOGO extends javax.swing.JFrame {
                     .addComponent(JCombo_SelectorID, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel9)
-                    .addComponent(jLabel10)
                     .addGroup(jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(JT_NombreMOD, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(JT_ContraMOD, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(JCombo_State, javax.swing.GroupLayout.Alignment.LEADING, 0, 145, Short.MAX_VALUE)
-                        .addComponent(JCombo_Sex, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addComponent(JCombo_Sex, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel10))
                 .addGroup(jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addComponent(JT_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(234, 234, 234))
+                    .addGroup(jInternalFrame2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel11)
+                            .addComponent(JT_ApellidoMOD)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15)
+                            .addComponent(JT_DiaMOD)
+                            .addComponent(JT_MesMOD)
+                            .addComponent(JT_AnioMOD)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(193, 193, 193))
+                    .addGroup(jInternalFrame2Layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(BT_MOD, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jInternalFrame2Layout.setVerticalGroup(
             jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame2Layout.createSequentialGroup()
-                .addComponent(JCombo_SelectorID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JCombo_SelectorID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BT_MOD))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -302,22 +370,38 @@ public final class GOGO extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JT_NombreMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JT_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JT_ApellidoMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JT_ContraMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
                     .addComponent(jLabel12))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JCombo_Sex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel10)
+                .addGroup(jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrame2Layout.createSequentialGroup()
+                        .addComponent(JT_ContraMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JCombo_Sex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jInternalFrame2Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JT_AnioMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JT_MesMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JCombo_State, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGroup(jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrame2Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JCombo_State, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jInternalFrame2Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JT_DiaMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Modificacion Civiles", jInternalFrame2);
@@ -339,7 +423,6 @@ public final class GOGO extends javax.swing.JFrame {
         MenuEmpleado.getContentPane().setLayout(MenuEmpleadoLayout);
         MenuEmpleadoLayout.setHorizontalGroup(
             MenuEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
             .addGroup(MenuEmpleadoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
@@ -347,23 +430,37 @@ public final class GOGO extends javax.swing.JFrame {
                 .addComponent(Label_Nombre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(JBottom_CerrarSesion)
-                .addContainerGap())
+                .addGap(129, 129, 129))
+            .addGroup(MenuEmpleadoLayout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 35, Short.MAX_VALUE))
         );
         MenuEmpleadoLayout.setVerticalGroup(
             MenuEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuEmpleadoLayout.createSequentialGroup()
                 .addGroup(MenuEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MenuEmpleadoLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(MenuEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Label_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuEmpleadoLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(JBottom_CerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1)
-                .addGap(134, 134, 134))
+                        .addGroup(MenuEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JBottom_CerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MenuEmpleadoLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(Label_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(96, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout MenuCivilLayout = new javax.swing.GroupLayout(MenuCivil.getContentPane());
+        MenuCivil.getContentPane().setLayout(MenuCivilLayout);
+        MenuCivilLayout.setHorizontalGroup(
+            MenuCivilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 663, Short.MAX_VALUE)
+        );
+        MenuCivilLayout.setVerticalGroup(
+            MenuCivilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 465, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -411,6 +508,9 @@ public final class GOGO extends javax.swing.JFrame {
                 Label_Nombre.setText(Usus.get(Numero).getNombre());
                 VerificadorDeCuenta();
                 LlenadoTablaInfo();
+                LLenadoDeComboxSex();
+                LlenadoDeComboBoxID();
+                LlenadoDeComboboxState();
             }
         } else {
             JOptionPane.showMessageDialog(Login, "Nombre o Contraseña invalidas");
@@ -431,6 +531,48 @@ public final class GOGO extends javax.swing.JFrame {
     private void JT_ContraMODActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_ContraMODActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JT_ContraMODActionPerformed
+
+    private void JCombo_SelectorIDItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JCombo_SelectorIDItemStateChanged
+        JT_NombreMOD.setText(Usus.get(JCombo_SelectorID.getSelectedIndex()).getNombre());
+        JT_AnioMOD.setText(String.valueOf(Usus.get(JCombo_SelectorID.getSelectedIndex()).getFechaNacimiento().getYear()));
+        JT_MesMOD.setText(String.valueOf(Usus.get(JCombo_SelectorID.getSelectedIndex()).getFechaNacimiento().getMonth()));
+        JT_DiaMOD.setText(String.valueOf(Usus.get(JCombo_SelectorID.getSelectedIndex()).getFechaNacimiento().getDay()));
+        JT_ApellidoMOD.setText(Usus.get(JCombo_SelectorID.getSelectedIndex()).getApellido());
+        JT_ContraMOD.setText(Usus.get(JCombo_SelectorID.getSelectedIndex()).getContrasenya());
+
+
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_JCombo_SelectorIDItemStateChanged
+
+    private void BT_MODActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_MODActionPerformed
+        Usus.get(JCombo_SelectorID.getSelectedIndex()).setApellido(JT_ApellidoMOD.getText());
+        Usus.get(JCombo_SelectorID.getSelectedIndex()).setContrasenya(JT_ContraMOD.getText());
+        Usus.get(JCombo_SelectorID.getSelectedIndex()).setFechaNacimiento(new Date(Integer.parseInt(JT_AnioMOD.getText()), Integer.parseInt(JT_MesMOD.getText()), Integer.parseInt(JT_DiaMOD.getText())));
+        Usus.get(JCombo_SelectorID.getSelectedIndex()).setNombre(JT_NombreMOD.getText());
+        switch (JCombo_Sex.getSelectedIndex()) {
+            case 0:
+                Usus.get(JCombo_SelectorID.getSelectedIndex()).setSexo("Masculino");
+                break;
+            case 1:
+                Usus.get(JCombo_SelectorID.getSelectedIndex()).setSexo("Femenino");
+                break;
+        }
+        switch (JCombo_State.getSelectedIndex()) {
+            case 0:
+                Usus.get(JCombo_SelectorID.getSelectedIndex()).setDepartamento("Francisco Morazan");
+                break;
+            case 1:
+                Usus.get(JCombo_SelectorID.getSelectedIndex()).setDepartamento("Comayagua");
+                break;
+            case 2:
+                Usus.get(JCombo_SelectorID.getSelectedIndex()).setDepartamento("Cortes");
+                break;
+                
+        }
+
+
+    }//GEN-LAST:event_BT_MODActionPerformed
 
     /**
      * @param args the command line arguments
@@ -470,19 +612,24 @@ public final class GOGO extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BT_MOD;
     private javax.swing.JButton JBottom_CerrarSesion;
     private javax.swing.JComboBox<String> JCombo_SelectorID;
     private javax.swing.JComboBox<String> JCombo_Sex;
     private javax.swing.JComboBox<String> JCombo_State;
     private javax.swing.JPasswordField JPass_Contrasenya;
-    private javax.swing.JTextField JT_Apellido;
+    private javax.swing.JTextField JT_AnioMOD;
+    private javax.swing.JTextField JT_ApellidoMOD;
     private javax.swing.JTextField JT_ContraMOD;
+    private javax.swing.JTextField JT_DiaMOD;
+    private javax.swing.JTextField JT_MesMOD;
     private javax.swing.JTextField JT_NombreCompleto;
     private javax.swing.JTextField JT_NombreMOD;
     private javax.swing.JTable JTable_InformacionCiviles;
     private javax.swing.JTable JTable_Tramites;
     private javax.swing.JLabel Label_Nombre;
     private javax.swing.JFrame Login;
+    private javax.swing.JFrame MenuCivil;
     private javax.swing.JFrame MenuEmpleado;
     private javax.swing.JButton jButton1;
     private javax.swing.JInternalFrame jInternalFrame1;
@@ -491,6 +638,9 @@ public final class GOGO extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -7,6 +7,7 @@ package examenlab5progra2_carlosnoe;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
 /**
  *
@@ -19,12 +20,27 @@ public final class GOGO extends javax.swing.JFrame {
     public GOGO() {
         initComponents();
         Agregador();
+        Login.setLocationRelativeTo(null);
         Login.setVisible(true);
 
     }
 
     public void VerificadorDeCuenta() {
-
+        javax.swing.table.DefaultTableModel MODELITO = new javax.swing.table.DefaultTableModel();
+        MODELITO.addColumn("Nombre Completo");
+        MODELITO.addColumn("No. Identidad");
+        MODELITO.addColumn("Fecha de Nacimiento");
+        MODELITO.addColumn("Departamento");
+        for (int i = 0; i < Usus.size(); i++) {
+            if (Usus.get(i) instanceof Civiles) {
+                MODELITO.addRow(
+                        new Object[]{
+                            Usus.get(i).getNombre() + " " + Usus.get(i).getApellido(), Usus.get(i).getNumeroIdentidad(), Usus.get(i).getFechaNacimiento(), Usus.get(i).getDepartamento()
+                        });
+            }
+        }
+        JTable_InformacionCiviles.setModel(MODELITO);
+        
     }
 
     public void Agregador() {
@@ -288,6 +304,7 @@ public final class GOGO extends javax.swing.JFrame {
                 MenuEmpleado.setVisible(true);
                 MenuEmpleado.setBounds(Login.getX(), Login.getY(), Login.getWidth(), Login.getHeight());
                 Label_Nombre.setText(Usus.get(Numero).getNombre());
+                VerificadorDeCuenta();
             }
         } else {
             JOptionPane.showMessageDialog(Login, "Nombre o Contraseña invalidas");

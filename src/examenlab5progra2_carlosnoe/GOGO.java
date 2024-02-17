@@ -723,7 +723,7 @@ public final class GOGO extends javax.swing.JFrame {
                 MenuCivil.setBounds(Login.getX(), Login.getY(), Login.getWidth(), Login.getHeight());
                 LLenadoINFOCivil(Numero);
                 LLenadoTramitesCivil(Numero);
-                Label_Nombre.setText("Bienvenido: " + Usus.get(Numero).getNombre());
+                JLabelEditable1.setText("Bienvenido: " + Usus.get(Numero).getNombre());
                 TOP = (Civiles) Usus.get(Numero);
             } else {
                 MenuEmpleado.setVisible(true);

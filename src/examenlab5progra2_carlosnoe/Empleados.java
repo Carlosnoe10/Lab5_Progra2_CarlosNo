@@ -9,9 +9,9 @@ public class Empleados extends Usuarios {
     public String PuestoLaboral;
     public int AnioTrabaj;
 
-    public Empleados(String Nombre, String Apellido, String Contrasenya, Date FechaNacimiento, String Sexo, String Departamento, int NumeroIdentidad) {
+    public Empleados(String Nombre, String Apellido, String Contrasenya, Date FechaNacimiento, String Sexo, String Departamento, String NumeroIdentidad) {
         super(Nombre, Apellido, Contrasenya, FechaNacimiento, Sexo, Departamento, NumeroIdentidad);
-        this.NumeroIdentidad=NumeroDeIdentidad();
+        NumeroDeIdentidad();
     }
 
     public Empleados(String Carrera, String PuestoLaboral, int AnioTrabaj, String Nombre, String Apellido, String Contrasenya, Date FechaNacimiento, String Sexo, String Departamento) {
@@ -19,10 +19,9 @@ public class Empleados extends Usuarios {
         this.Carrera = Carrera;
         this.PuestoLaboral = PuestoLaboral;
         this.AnioTrabaj = AnioTrabaj;
-        this.NumeroIdentidad=NumeroDeIdentidad();
+        NumeroDeIdentidad();
     }
 
-    
     public String getCarrera() {
         return Carrera;
     }
@@ -95,11 +94,11 @@ public class Empleados extends Usuarios {
         this.Departamento = Departamento;
     }
 
-    public int getNumeroIdentidad() {
+    public String getNumeroIdentidad() {
         return NumeroIdentidad;
     }
 
-    public void setNumeroIdentidad(int NumeroIdentidad) {
+    public void setNumeroIdentidad(String NumeroIdentidad) {
         this.NumeroIdentidad = NumeroIdentidad;
     }
 
@@ -112,7 +111,7 @@ public class Empleados extends Usuarios {
     }
 
     @Override
-    public int NumeroDeIdentidad() {
+    public void NumeroDeIdentidad() {
         Random random = new Random();
         int primeros = 0;
         int Segundos = random.nextInt(10000/*minimo*/, 99999/*Maximo*/);
@@ -120,17 +119,19 @@ public class Empleados extends Usuarios {
         int Nacional = 0;
 
         if (this.Departamento.equalsIgnoreCase("Francisco Morazan")) {
-            Nacional = 01;
+            Nacional = 1;
             primeros = random.nextInt(01/*minimo*/, 28/*Maximo*/);
         } else if (this.Departamento.equalsIgnoreCase("Cortes")) {
-            Nacional = 02;
+            Nacional = 2;
             primeros = random.nextInt(01/*minimo*/, 12/*Maximo*/);
         } else if (this.Departamento.equalsIgnoreCase("Comayagua")) {
-            Nacional = 03;
+            Nacional = 3;
             primeros = random.nextInt(01/*minimo*/, 21/*Maximo*/);
         }
-        String nom = String.valueOf(Nacional) + String.valueOf(primeros) + String.valueOf(DiaFecha + 1900) + String.valueOf(Segundos);
-        return Integer.parseInt(nom);
+        String nom = "0" + String.valueOf(Nacional) + String.valueOf(primeros) + String.valueOf(DiaFecha ) + String.valueOf(Segundos);
+        this.NumeroIdentidad=nom;
+    
+        
     }
 
 }

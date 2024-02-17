@@ -115,7 +115,7 @@ public final class GOGO extends javax.swing.JFrame {
 
     public void Agregador() {
         Usus.add(new Empleados("Marketing", "Community Manager", 2, "Jose", "Gomez Gomez", "NextSummer", new Date(2000, 6, 23), "Femenino", "Cortes"));
-        Usus.add(new Civiles("Cristiano", "Ronaldo", "elbichosiu", new Date(1986, 7, 7), "Masculino", "Fransciso Morazan"));
+        Usus.add(new Civiles("Cristiano", "Ronaldo", "elbichosiu", new Date(1986, 7, 7), "Masculino", "Francisco Morazan"));
         Usus.add(new Empleados("Disenio Grafico", "Conserge", 10, "Amador", "Benitez", "12345678", new Date(1999, 12, 4), "Masculino", "Comayagua"));
         Usus.add(new Civiles("Evangelina", "Hernandes", "bebesitayo", new Date(2004, 5, 20), "Femenino", "Cortes"));
         Usus.add(new Civiles("Pedro", "Capo", "Concalma", new Date(2003, 7, 1), "Maculino", "Francisco Morazan"));

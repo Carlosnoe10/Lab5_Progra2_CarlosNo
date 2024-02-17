@@ -10,9 +10,9 @@ abstract public class Usuarios {
     public Date FechaNacimiento;
     public String Sexo;
     public String Departamento;
-    public int NumeroIdentidad;
+    public String NumeroIdentidad;
 
-    public Usuarios(String Nombre, String Apellido, String Contrasenya, Date FechaNacimiento, String Sexo, String Departamento, int NumeroIdentidad) {
+    public Usuarios(String Nombre, String Apellido, String Contrasenya, Date FechaNacimiento, String Sexo, String Departamento, String NumeroIdentidad) {
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.Contrasenya = Contrasenya;
@@ -31,8 +31,8 @@ abstract public class Usuarios {
         this.Departamento = Departamento;
     }
 
-    public int NumeroDeIdentidad(){
-        return 0;
+    public void NumeroDeIdentidad(){
+        
     }
     
     public String getNombre() {
@@ -83,11 +83,11 @@ abstract public class Usuarios {
         this.Departamento = Departamento;
     }
 
-    public int getNumeroIdentidad() {
+    public String getNumeroIdentidad() {
         return NumeroIdentidad;
     }
 
-    public void setNumeroIdentidad(int NumeroIdentidad) {
+    public void setNumeroIdentidad(String NumeroIdentidad) {
         this.NumeroIdentidad = NumeroIdentidad;
     }
 

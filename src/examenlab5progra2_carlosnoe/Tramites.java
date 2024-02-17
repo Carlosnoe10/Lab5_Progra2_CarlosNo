@@ -6,9 +6,9 @@ public class Tramites {
     public String Nombre;
     public String Descripcion;
     public Date FechaSoli;
-    public int NumeroI;
+    public String NumeroI;
 
-    public Tramites(String Nombre, String Descripcion, Date FechaSoli, int NumeroI) {
+    public Tramites(String Nombre, String Descripcion, Date FechaSoli, String NumeroI) {
         this.Nombre = Nombre;
         this.Descripcion = Descripcion;
         this.FechaSoli = FechaSoli;
@@ -39,11 +39,11 @@ public class Tramites {
         this.FechaSoli = FechaSoli;
     }
 
-    public int getNumeroI() {
+    public String getNumeroI() {
         return NumeroI;
     }
 
-    public void setNumeroI(int NumeroI) {
+    public void setNumeroI(String NumeroI) {
         this.NumeroI = NumeroI;
     }
 

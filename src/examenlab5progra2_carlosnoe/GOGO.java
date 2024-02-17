@@ -24,7 +24,21 @@ public final class GOGO extends javax.swing.JFrame {
         Agregador();
         Login.setLocationRelativeTo(null);
         Login.setVisible(true);
+        VerificarLineas();
+    }
 
+    public void VerificarLineas() {
+        for (int i = 0; i < Usus.size(); i++) {
+            for (int j = 0; j < Usus.size(); j++) {
+                if (i == j) {
+                } else {
+                    if (Usus.get(i).getNumeroIdentidad().equalsIgnoreCase(Usus.get(j).getNumeroIdentidad())) {
+                        JOptionPane.showMessageDialog(null, "Son iguales");
+
+                    }
+                }
+            }
+        }
     }
 
     public void LLenadoTramitesCivil(int numero) {
@@ -747,6 +761,7 @@ public final class GOGO extends javax.swing.JFrame {
     }//GEN-LAST:event_JCombo_SelectorIDItemStateChanged
 
     private void BT_MODActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_MODActionPerformed
+
         Usus.get(JCombo_SelectorID.getSelectedIndex()).setApellido(JT_ApellidoMOD.getText());
         Usus.get(JCombo_SelectorID.getSelectedIndex()).setContrasenya(JT_ContraMOD.getText());
         Usus.get(JCombo_SelectorID.getSelectedIndex()).setFechaNacimiento(new Date(Integer.parseInt(JT_AnioMOD.getText()), Integer.parseInt(JT_MesMOD.getText()), Integer.parseInt(JT_DiaMOD.getText())));

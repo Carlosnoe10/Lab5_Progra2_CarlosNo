@@ -129,9 +129,8 @@ public class Empleados extends Usuarios {
             primeros = random.nextInt(01/*minimo*/, 21/*Maximo*/);
         }
         String nom = "0" + String.valueOf(Nacional) + String.valueOf(primeros) + String.valueOf(DiaFecha ) + String.valueOf(Segundos);
-        this.NumeroIdentidad=nom;
-    
-        
+        this.NumeroIdentidad=nom;  
     }
+    
 
 }

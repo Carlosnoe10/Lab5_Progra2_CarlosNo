@@ -43,16 +43,21 @@ public final class GOGO extends javax.swing.JFrame {
 
     public void LLenadoTramitesCivil(int numero) {
         javax.swing.table.DefaultTableModel MODELITO = new javax.swing.table.DefaultTableModel();
-        MODELITO.addColumn("Nombre");
-        MODELITO.addColumn("Descripcion");
-        MODELITO.addColumn("Fecha");
-        MODELITO.addColumn("Numero Identidad");
-        MODELITO.addRow(
-                new Object[]{
-                    Trans.get(numero).getNombre(), Trans.get(numero).getDescripcion(), Trans.get(numero).getFechaSoli(), Trans.get(numero).getNumeroI()
-                });
+        for (int i = 0; i < Trans.size(); i++) {
 
-        JTable_Civil_Tramites.setModel(MODELITO);
+            if (Trans.get(i).getNombre().equalsIgnoreCase(Usus.get(numero).getNombre())) {
+                MODELITO.addColumn("Nombre");
+                MODELITO.addColumn("Descripcion");
+                MODELITO.addColumn("Fecha");
+                MODELITO.addColumn("Numero Identidad");
+                MODELITO.addRow(
+                        new Object[]{
+                            Trans.get(i).getNombre(), Trans.get(i).getDescripcion(), Trans.get(i).getFechaSoli(), Trans.get(i).getNumeroI()
+                        });
+
+                JTable_Civil_Tramites.setModel(MODELITO);
+            }
+        }
     }
 
     public void LLenadoINFOCivil(int numero) {
@@ -715,6 +720,7 @@ public final class GOGO extends javax.swing.JFrame {
             Login.setVisible(false);
             if (Usus.get(Numero) instanceof Civiles) {
                 MenuCivil.setVisible(true);
+                MenuCivil.setBounds(Login.getX(), Login.getY(), Login.getWidth(), Login.getHeight());
                 LLenadoINFOCivil(Numero);
                 LLenadoTramitesCivil(Numero);
                 Label_Nombre.setText("Bienvenido: " + Usus.get(Numero).getNombre());
@@ -786,7 +792,7 @@ public final class GOGO extends javax.swing.JFrame {
                 break;
 
         }
-
+        JOptionPane.showMessageDialog(MenuEmpleado, "Modificado Correctamente");
 
     }//GEN-LAST:event_BT_MODActionPerformed
 
@@ -799,7 +805,10 @@ public final class GOGO extends javax.swing.JFrame {
     }//GEN-LAST:event_JBottom_CerrarSesion1ActionPerformed
 
     private void JBT_CivilEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBT_CivilEnviarActionPerformed
+
         Trans.add(new Tramites(JT_NombreCivil.getText(), TXTA_Civil.getText(), new Date(), TOP.NumeroIdentidad));
+        JT_NombreCivil.setText("");
+        TXTA_Civil.setText("");
     }//GEN-LAST:event_JBT_CivilEnviarActionPerformed
 
     /**

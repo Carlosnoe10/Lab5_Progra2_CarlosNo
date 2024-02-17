@@ -14,19 +14,19 @@ import javax.swing.JTable;
  * @author cd507 +++Asiento F2 Silla1 ++++
  */
 public final class GOGO extends javax.swing.JFrame {
-    
+
     ArrayList<Usuarios> Usus = new ArrayList();
     ArrayList<Tramites> Trans = new ArrayList();
     public Civiles TOP;
-    
+
     public GOGO() {
         initComponents();
         Agregador();
         Login.setLocationRelativeTo(null);
         Login.setVisible(true);
-        
+
     }
-    
+
     public void LLenadoTramitesCivil(int numero) {
         javax.swing.table.DefaultTableModel MODELITO = new javax.swing.table.DefaultTableModel();
         MODELITO.addColumn("Nombre");
@@ -37,10 +37,10 @@ public final class GOGO extends javax.swing.JFrame {
                 new Object[]{
                     Trans.get(numero).getNombre(), Trans.get(numero).getDescripcion(), Trans.get(numero).getFechaSoli(), Trans.get(numero).getNumeroI()
                 });
-        
+
         JTable_Civil_Tramites.setModel(MODELITO);
     }
-    
+
     public void LLenadoINFOCivil(int numero) {
         javax.swing.table.DefaultTableModel MODELITO = new javax.swing.table.DefaultTableModel();
         MODELITO.addColumn("Nombre Completo");
@@ -53,7 +53,7 @@ public final class GOGO extends javax.swing.JFrame {
                 });
         JTable_Civil_InformacionCiviles.setModel(MODELITO);
     }
-    
+
     public void LlenadoDeComboboxState() {
         javax.swing.DefaultComboBoxModel Combo = new javax.swing.DefaultComboBoxModel<>();
         Combo.addElement("Francisco Morazan");
@@ -61,23 +61,23 @@ public final class GOGO extends javax.swing.JFrame {
         Combo.addElement("Cortes");
         JCombo_State.setModel(Combo);
     }
-    
+
     public void LLenadoDeComboxSex() {
         javax.swing.DefaultComboBoxModel Combo = new javax.swing.DefaultComboBoxModel<>();
         Combo.addElement("Masculino");
         Combo.addElement("Femenino");
         JCombo_Sex.setModel(Combo);
     }
-    
+
     public void LlenadoDeComboBoxID() {
         javax.swing.DefaultComboBoxModel Combo = new javax.swing.DefaultComboBoxModel<>();
         for (int i = 0; i < Usus.size(); i++) {
             Combo.addElement(Usus.get(i).getNumeroIdentidad());
         }
         JCombo_SelectorID.setModel(Combo);
-        
+
     }
-    
+
     public void LlenadoTablaInfo() {
         javax.swing.table.DefaultTableModel MODELITO = new javax.swing.table.DefaultTableModel();
         MODELITO.addColumn("Nombre Completo");
@@ -94,7 +94,7 @@ public final class GOGO extends javax.swing.JFrame {
         }
         JTable_InformacionCiviles.setModel(MODELITO);
     }
-    
+
     public void VerificadorDeCuenta() {
         javax.swing.table.DefaultTableModel MODELITO = new javax.swing.table.DefaultTableModel();
         MODELITO.addColumn("Nombre");
@@ -102,17 +102,17 @@ public final class GOGO extends javax.swing.JFrame {
         MODELITO.addColumn("Fecha");
         MODELITO.addColumn("Numero Identidad");
         for (int i = 0; i < Trans.size(); i++) {
-            
+
             MODELITO.addRow(
                     new Object[]{
                         Trans.get(i).getNombre(), Trans.get(i).getDescripcion(), Trans.get(i).getFechaSoli(), Trans.get(i).getNumeroI()
                     });
-            
+
         }
         JTable_Tramites.setModel(MODELITO);
-        
+
     }
-    
+
     public void Agregador() {
         Usus.add(new Empleados("Marketing", "Community Manager", 2, "Jose", "Gomez Gomez", "NextSummer", new Date(2000, 6, 23), "Femenino", "Cortes"));
         Usus.add(new Civiles("Cristiano", "Ronaldo", "elbichosiu", new Date(1986, 7, 7), "Masculino", "Fransciso Morazan"));
@@ -121,7 +121,7 @@ public final class GOGO extends javax.swing.JFrame {
         Usus.add(new Civiles("Pedro", "Capo", "Concalma", new Date(2003, 7, 1), "Maculino", "Francisco Morazan"));
         Usus.add(new Civiles("Javier", "Prades", "Top3", new Date(2000, 9, 21), "Masculino", "Comayagua"));
         Usus.add(new Civiles("Xiomi", "Zelaya", "VergaChina", new Date(1959, 1, 5), "Femenino", "Cortes"));
-        
+
         Trans.add(new Tramites(Usus.get(1).getNombre(), "me robaron el carro por la cerro", new Date(1990, 12, 24), Usus.get(1).getNumeroIdentidad()));
         Trans.add(new Tramites(Usus.get(4).getNombre(), "secaeron", new Date(2004, 12, 1), Usus.get(4).getNumeroIdentidad()));
     }
@@ -679,7 +679,7 @@ public final class GOGO extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         boolean Key1 = false;
         boolean Key2 = false;
         String PreNombre = "";
@@ -696,15 +696,15 @@ public final class GOGO extends javax.swing.JFrame {
                 Numero = i;
             }
         }
-        
+
         if ((Key1 == true) && (Key2 == true)) {
             Login.setVisible(false);
             if (Usus.get(Numero) instanceof Civiles) {
                 MenuCivil.setVisible(true);
                 LLenadoINFOCivil(Numero);
                 LLenadoTramitesCivil(Numero);
-                Label_Nombre.setText("Bienvenido: "+Usus.get(Numero).getNombre());
-                TOP=(Civiles)Usus.get(Numero);
+                Label_Nombre.setText("Bienvenido: " + Usus.get(Numero).getNombre());
+                TOP = (Civiles) Usus.get(Numero);
             } else {
                 MenuEmpleado.setVisible(true);
                 MenuEmpleado.setBounds(Login.getX(), Login.getY(), Login.getWidth(), Login.getHeight());
@@ -720,7 +720,7 @@ public final class GOGO extends javax.swing.JFrame {
             JT_NombreCompleto.setText("");
             JPass_Contrasenya.setText("");
         }
-        
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -769,9 +769,9 @@ public final class GOGO extends javax.swing.JFrame {
             case 2:
                 Usus.get(JCombo_SelectorID.getSelectedIndex()).setDepartamento("Cortes");
                 break;
-            
+
         }
-        
+
 
     }//GEN-LAST:event_BT_MODActionPerformed
 
@@ -818,9 +818,9 @@ public final class GOGO extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GOGO().setVisible(false);
-                
+
             }
-            
+
         });
     }
 

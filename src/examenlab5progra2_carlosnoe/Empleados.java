@@ -1,13 +1,14 @@
 package examenlab5progra2_carlosnoe;
 
 import java.util.Date;
+import java.util.Random;
 
-public class Empleados extends Usuarios{
-    
+public class Empleados extends Usuarios {
+
     public String Carrera;
     public String PuestoLaboral;
     public int AnioTrabaj;
-    
+
     public Empleados(String Nombre, String Apellido, String Contrasenya, Date FechaNacimiento, String Sexo, String Departamento, int NumeroIdentidad) {
         super(Nombre, Apellido, Contrasenya, FechaNacimiento, Sexo, Departamento, NumeroIdentidad);
     }
@@ -19,10 +20,6 @@ public class Empleados extends Usuarios{
         this.AnioTrabaj = AnioTrabaj;
     }
 
-    
-    
-    
-    
     public String getCarrera() {
         return Carrera;
     }
@@ -105,16 +102,32 @@ public class Empleados extends Usuarios{
 
     @Override
     public String toString() {
-        return super.toString()+ "\n"
+        return super.toString() + "\n"
                 + "Carrera= " + Carrera + "\n"
                 + "PuestoLaboral= " + PuestoLaboral + "\n"
-                + "AnioTrabaj= " + AnioTrabaj ;
+                + "AnioTrabaj= " + AnioTrabaj;
     }
-    
+
     @Override
-    public int NumeroDeIdentidad(){
-        return 0;
+    public int NumeroDeIdentidad() {
+        Random random = new Random();
+        int primeros = 0;
+        int Segundos = random.nextInt(10000/*minimo*/, 99999/*Maximo*/);
+        int DiaFecha = this.FechaNacimiento.getYear();
+        int Nacional = 0;
+
+        if (this.Departamento.equalsIgnoreCase("Francisco Morazan")) {
+            Nacional = 01;
+            primeros = random.nextInt(01/*minimo*/, 28/*Maximo*/);
+        } else if (this.Departamento.equalsIgnoreCase("Cortes")) {
+            Nacional = 02;
+            primeros = random.nextInt(01/*minimo*/, 12/*Maximo*/);
+        } else if (this.Departamento.equalsIgnoreCase("Comayagua")) {
+            Nacional = 03;
+            primeros = random.nextInt(01/*minimo*/, 21/*Maximo*/);
+        }
+        String nom = String.valueOf(Nacional) + String.valueOf(primeros) + String.valueOf(DiaFecha + 1900) + String.valueOf(Segundos);
+        return Integer.parseInt(nom);
     }
-    
-    
+
 }

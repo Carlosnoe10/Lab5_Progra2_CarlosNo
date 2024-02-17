@@ -11,6 +11,7 @@ public class Empleados extends Usuarios {
 
     public Empleados(String Nombre, String Apellido, String Contrasenya, Date FechaNacimiento, String Sexo, String Departamento, int NumeroIdentidad) {
         super(Nombre, Apellido, Contrasenya, FechaNacimiento, Sexo, Departamento, NumeroIdentidad);
+        this.NumeroIdentidad=NumeroDeIdentidad();
     }
 
     public Empleados(String Carrera, String PuestoLaboral, int AnioTrabaj, String Nombre, String Apellido, String Contrasenya, Date FechaNacimiento, String Sexo, String Departamento) {
@@ -18,8 +19,10 @@ public class Empleados extends Usuarios {
         this.Carrera = Carrera;
         this.PuestoLaboral = PuestoLaboral;
         this.AnioTrabaj = AnioTrabaj;
+        this.NumeroIdentidad=NumeroDeIdentidad();
     }
 
+    
     public String getCarrera() {
         return Carrera;
     }

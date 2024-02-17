@@ -11,10 +11,12 @@ public class Civiles extends Usuarios {
 
     public Civiles(String Nombre, String Apellido, String Contrasenya, Date FechaNacimiento, String Sexo, String Departamento, int NumeroIdentidad) {
         super(Nombre, Apellido, Contrasenya, FechaNacimiento, Sexo, Departamento, NumeroIdentidad);
+        this.NumeroIdentidad=NumeroDeIdentidad();
     }
 
     public Civiles(String Nombre, String Apellido, String Contrasenya, Date FechaNacimiento, String Sexo, String Departamento) {
         super(Nombre, Apellido, Contrasenya, FechaNacimiento, Sexo, Departamento);
+        this.NumeroIdentidad=NumeroDeIdentidad();
     }
 
     public ArrayList<Tramites> getTramites() {

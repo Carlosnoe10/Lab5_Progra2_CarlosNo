@@ -92,6 +92,7 @@ public class Civiles extends Usuarios{
     @Override
     public int NumeroDeIdentidad(){
         Random random= new Random();
+        int randi = random.nextInt(1/*minimo*/,999/*Maximo*/);
 
      return 0;           
     }

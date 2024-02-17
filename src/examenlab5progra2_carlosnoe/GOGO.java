@@ -14,18 +14,46 @@ import javax.swing.JTable;
  * @author cd507 +++Asiento F2 Silla1 ++++
  */
 public final class GOGO extends javax.swing.JFrame {
-
+    
     ArrayList<Usuarios> Usus = new ArrayList();
     ArrayList<Tramites> Trans = new ArrayList();
-
+    public Civiles TOP;
+    
     public GOGO() {
         initComponents();
         Agregador();
         Login.setLocationRelativeTo(null);
         Login.setVisible(true);
-
+        
     }
-
+    
+    public void LLenadoTramitesCivil(int numero) {
+        javax.swing.table.DefaultTableModel MODELITO = new javax.swing.table.DefaultTableModel();
+        MODELITO.addColumn("Nombre");
+        MODELITO.addColumn("Descripcion");
+        MODELITO.addColumn("Fecha");
+        MODELITO.addColumn("Numero Identidad");
+        MODELITO.addRow(
+                new Object[]{
+                    Trans.get(numero).getNombre(), Trans.get(numero).getDescripcion(), Trans.get(numero).getFechaSoli(), Trans.get(numero).getNumeroI()
+                });
+        
+        JTable_Civil_Tramites.setModel(MODELITO);
+    }
+    
+    public void LLenadoINFOCivil(int numero) {
+        javax.swing.table.DefaultTableModel MODELITO = new javax.swing.table.DefaultTableModel();
+        MODELITO.addColumn("Nombre Completo");
+        MODELITO.addColumn("No. Identidad");
+        MODELITO.addColumn("Fecha de Nacimiento");
+        MODELITO.addColumn("Departamento");
+        MODELITO.addRow(
+                new Object[]{
+                    Usus.get(numero).getNombre() + " " + Usus.get(numero).getApellido(), Usus.get(numero).getNumeroIdentidad(), Usus.get(numero).getFechaNacimiento(), Usus.get(numero).getDepartamento()
+                });
+        JTable_Civil_InformacionCiviles.setModel(MODELITO);
+    }
+    
     public void LlenadoDeComboboxState() {
         javax.swing.DefaultComboBoxModel Combo = new javax.swing.DefaultComboBoxModel<>();
         Combo.addElement("Francisco Morazan");
@@ -33,23 +61,23 @@ public final class GOGO extends javax.swing.JFrame {
         Combo.addElement("Cortes");
         JCombo_State.setModel(Combo);
     }
-
+    
     public void LLenadoDeComboxSex() {
         javax.swing.DefaultComboBoxModel Combo = new javax.swing.DefaultComboBoxModel<>();
         Combo.addElement("Masculino");
         Combo.addElement("Femenino");
         JCombo_Sex.setModel(Combo);
     }
-
+    
     public void LlenadoDeComboBoxID() {
         javax.swing.DefaultComboBoxModel Combo = new javax.swing.DefaultComboBoxModel<>();
         for (int i = 0; i < Usus.size(); i++) {
             Combo.addElement(Usus.get(i).getNumeroIdentidad());
         }
         JCombo_SelectorID.setModel(Combo);
-
+        
     }
-
+    
     public void LlenadoTablaInfo() {
         javax.swing.table.DefaultTableModel MODELITO = new javax.swing.table.DefaultTableModel();
         MODELITO.addColumn("Nombre Completo");
@@ -66,7 +94,7 @@ public final class GOGO extends javax.swing.JFrame {
         }
         JTable_InformacionCiviles.setModel(MODELITO);
     }
-
+    
     public void VerificadorDeCuenta() {
         javax.swing.table.DefaultTableModel MODELITO = new javax.swing.table.DefaultTableModel();
         MODELITO.addColumn("Nombre");
@@ -74,17 +102,17 @@ public final class GOGO extends javax.swing.JFrame {
         MODELITO.addColumn("Fecha");
         MODELITO.addColumn("Numero Identidad");
         for (int i = 0; i < Trans.size(); i++) {
-
+            
             MODELITO.addRow(
                     new Object[]{
                         Trans.get(i).getNombre(), Trans.get(i).getDescripcion(), Trans.get(i).getFechaSoli(), Trans.get(i).getNumeroI()
                     });
-
+            
         }
         JTable_Tramites.setModel(MODELITO);
-
+        
     }
-
+    
     public void Agregador() {
         Usus.add(new Empleados("Marketing", "Community Manager", 2, "Jose", "Gomez Gomez", "NextSummer", new Date(2000, 6, 23), "Femenino", "Cortes"));
         Usus.add(new Civiles("Cristiano", "Ronaldo", "elbichosiu", new Date(1986, 7, 7), "Masculino", "Fransciso Morazan"));
@@ -93,7 +121,7 @@ public final class GOGO extends javax.swing.JFrame {
         Usus.add(new Civiles("Pedro", "Capo", "Concalma", new Date(2003, 7, 1), "Maculino", "Francisco Morazan"));
         Usus.add(new Civiles("Javier", "Prades", "Top3", new Date(2000, 9, 21), "Masculino", "Comayagua"));
         Usus.add(new Civiles("Xiomi", "Zelaya", "VergaChina", new Date(1959, 1, 5), "Femenino", "Cortes"));
-
+        
         Trans.add(new Tramites(Usus.get(1).getNombre(), "me robaron el carro por la cerro", new Date(1990, 12, 24), Usus.get(1).getNumeroIdentidad()));
         Trans.add(new Tramites(Usus.get(4).getNombre(), "secaeron", new Date(2004, 12, 1), Usus.get(4).getNumeroIdentidad()));
     }
@@ -147,6 +175,23 @@ public final class GOGO extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         Label_Nombre = new javax.swing.JLabel();
         MenuCivil = new javax.swing.JFrame();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jInternalFrame3 = new javax.swing.JInternalFrame();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        JTable_Civil_Tramites = new javax.swing.JTable();
+        jLabel18 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        JTable_Civil_InformacionCiviles = new javax.swing.JTable();
+        jLabel17 = new javax.swing.JLabel();
+        jInternalFrame4 = new javax.swing.JInternalFrame();
+        jLabel16 = new javax.swing.JLabel();
+        JT_NombreCivil = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        TXTA_Civil = new javax.swing.JTextArea();
+        JBT_CivilEnviar = new javax.swing.JButton();
+        JLabelEditable1 = new javax.swing.JLabel();
+        JBottom_CerrarSesion1 = new javax.swing.JButton();
 
         Login.setBackground(new java.awt.Color(0, 0, 0));
         Login.setMinimumSize(new java.awt.Dimension(550, 500));
@@ -452,15 +497,169 @@ public final class GOGO extends javax.swing.JFrame {
                 .addContainerGap(96, Short.MAX_VALUE))
         );
 
+        jInternalFrame3.setVisible(true);
+
+        JTable_Civil_Tramites.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(JTable_Civil_Tramites);
+
+        jLabel18.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
+        jLabel18.setText("Tramites:");
+
+        JTable_Civil_InformacionCiviles.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        JTable_Civil_InformacionCiviles.setAutoscrolls(false);
+        JTable_Civil_InformacionCiviles.setShowGrid(true);
+        jScrollPane3.setViewportView(JTable_Civil_InformacionCiviles);
+
+        jLabel17.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
+        jLabel17.setText("Informacion de los Civiles:");
+
+        javax.swing.GroupLayout jInternalFrame3Layout = new javax.swing.GroupLayout(jInternalFrame3.getContentPane());
+        jInternalFrame3.getContentPane().setLayout(jInternalFrame3Layout);
+        jInternalFrame3Layout.setHorizontalGroup(
+            jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
+                    .addGroup(jInternalFrame3Layout.createSequentialGroup()
+                        .addGroup(jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jInternalFrame3Layout.setVerticalGroup(
+            jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame3Layout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel18)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Informacion Personal", jInternalFrame3);
+
+        jInternalFrame4.setVisible(true);
+
+        jLabel16.setFont(new java.awt.Font("Comic Sans MS", 3, 12)); // NOI18N
+        jLabel16.setText("Nombre");
+
+        jLabel19.setFont(new java.awt.Font("Comic Sans MS", 3, 12)); // NOI18N
+        jLabel19.setText("Descripcion");
+
+        TXTA_Civil.setColumns(20);
+        TXTA_Civil.setRows(5);
+        jScrollPane5.setViewportView(TXTA_Civil);
+
+        JBT_CivilEnviar.setText("Enviar");
+        JBT_CivilEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBT_CivilEnviarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jInternalFrame4Layout = new javax.swing.GroupLayout(jInternalFrame4.getContentPane());
+        jInternalFrame4.getContentPane().setLayout(jInternalFrame4Layout);
+        jInternalFrame4Layout.setHorizontalGroup(
+            jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame4Layout.createSequentialGroup()
+                .addGroup(jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(JT_NombreCivil))
+                    .addGroup(jInternalFrame4Layout.createSequentialGroup()
+                        .addGap(297, 297, 297)
+                        .addComponent(jLabel16)
+                        .addGap(0, 282, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel19)
+                .addGap(282, 282, 282))
+            .addGroup(jInternalFrame4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane5)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(JBT_CivilEnviar)
+                .addGap(273, 273, 273))
+        );
+        jInternalFrame4Layout.setVerticalGroup(
+            jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JT_NombreCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel19)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JBT_CivilEnviar)
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Gestion de Tramites", jInternalFrame4);
+
+        JLabelEditable1.setText("jLabel16");
+
+        JBottom_CerrarSesion1.setBackground(new java.awt.Color(204, 0, 0));
+        JBottom_CerrarSesion1.setText("Cerrar Sesion");
+        JBottom_CerrarSesion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBottom_CerrarSesion1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout MenuCivilLayout = new javax.swing.GroupLayout(MenuCivil.getContentPane());
         MenuCivil.getContentPane().setLayout(MenuCivilLayout);
         MenuCivilLayout.setHorizontalGroup(
             MenuCivilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 663, Short.MAX_VALUE)
+            .addGroup(MenuCivilLayout.createSequentialGroup()
+                .addGroup(MenuCivilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MenuCivilLayout.createSequentialGroup()
+                        .addComponent(JLabelEditable1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JBottom_CerrarSesion1))
+                    .addComponent(jTabbedPane2))
+                .addContainerGap())
         );
         MenuCivilLayout.setVerticalGroup(
             MenuCivilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 465, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuCivilLayout.createSequentialGroup()
+                .addGroup(MenuCivilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(JLabelEditable1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBottom_CerrarSesion1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -480,7 +679,7 @@ public final class GOGO extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+        
         boolean Key1 = false;
         boolean Key2 = false;
         String PreNombre = "";
@@ -497,11 +696,15 @@ public final class GOGO extends javax.swing.JFrame {
                 Numero = i;
             }
         }
-
+        
         if ((Key1 == true) && (Key2 == true)) {
             Login.setVisible(false);
             if (Usus.get(Numero) instanceof Civiles) {
-
+                MenuCivil.setVisible(true);
+                LLenadoINFOCivil(Numero);
+                LLenadoTramitesCivil(Numero);
+                Label_Nombre.setText("Bienvenido: "+Usus.get(Numero).getNombre());
+                TOP=(Civiles)Usus.get(Numero);
             } else {
                 MenuEmpleado.setVisible(true);
                 MenuEmpleado.setBounds(Login.getX(), Login.getY(), Login.getWidth(), Login.getHeight());
@@ -517,7 +720,7 @@ public final class GOGO extends javax.swing.JFrame {
             JT_NombreCompleto.setText("");
             JPass_Contrasenya.setText("");
         }
-
+        
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -539,8 +742,6 @@ public final class GOGO extends javax.swing.JFrame {
         JT_DiaMOD.setText(String.valueOf(Usus.get(JCombo_SelectorID.getSelectedIndex()).getFechaNacimiento().getDay()));
         JT_ApellidoMOD.setText(Usus.get(JCombo_SelectorID.getSelectedIndex()).getApellido());
         JT_ContraMOD.setText(Usus.get(JCombo_SelectorID.getSelectedIndex()).getContrasenya());
-
-
 
 // TODO add your handling code here:
     }//GEN-LAST:event_JCombo_SelectorIDItemStateChanged
@@ -568,11 +769,23 @@ public final class GOGO extends javax.swing.JFrame {
             case 2:
                 Usus.get(JCombo_SelectorID.getSelectedIndex()).setDepartamento("Cortes");
                 break;
-                
+            
         }
-
+        
 
     }//GEN-LAST:event_BT_MODActionPerformed
+
+    private void JBottom_CerrarSesion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBottom_CerrarSesion1ActionPerformed
+        Login.setVisible(true);
+        JT_NombreCompleto.setText("");
+        JPass_Contrasenya.setText("");
+        MenuCivil.setVisible(false);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBottom_CerrarSesion1ActionPerformed
+
+    private void JBT_CivilEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBT_CivilEnviarActionPerformed
+        Trans.add(new Tramites(JT_NombreCivil.getText(), TXTA_Civil.getText(), new Date(), TOP.NumeroIdentidad));
+    }//GEN-LAST:event_JBT_CivilEnviarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -605,35 +818,44 @@ public final class GOGO extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GOGO().setVisible(false);
-
+                
             }
-
+            
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BT_MOD;
+    private javax.swing.JButton JBT_CivilEnviar;
     private javax.swing.JButton JBottom_CerrarSesion;
+    private javax.swing.JButton JBottom_CerrarSesion1;
     private javax.swing.JComboBox<String> JCombo_SelectorID;
     private javax.swing.JComboBox<String> JCombo_Sex;
     private javax.swing.JComboBox<String> JCombo_State;
+    private javax.swing.JLabel JLabelEditable1;
     private javax.swing.JPasswordField JPass_Contrasenya;
     private javax.swing.JTextField JT_AnioMOD;
     private javax.swing.JTextField JT_ApellidoMOD;
     private javax.swing.JTextField JT_ContraMOD;
     private javax.swing.JTextField JT_DiaMOD;
     private javax.swing.JTextField JT_MesMOD;
+    private javax.swing.JTextField JT_NombreCivil;
     private javax.swing.JTextField JT_NombreCompleto;
     private javax.swing.JTextField JT_NombreMOD;
+    private javax.swing.JTable JTable_Civil_InformacionCiviles;
+    private javax.swing.JTable JTable_Civil_Tramites;
     private javax.swing.JTable JTable_InformacionCiviles;
     private javax.swing.JTable JTable_Tramites;
     private javax.swing.JLabel Label_Nombre;
     private javax.swing.JFrame Login;
     private javax.swing.JFrame MenuCivil;
     private javax.swing.JFrame MenuEmpleado;
+    private javax.swing.JTextArea TXTA_Civil;
     private javax.swing.JButton jButton1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrame2;
+    private javax.swing.JInternalFrame jInternalFrame3;
+    private javax.swing.JInternalFrame jInternalFrame4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -641,6 +863,10 @@ public final class GOGO extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -651,6 +877,10 @@ public final class GOGO extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
     // End of variables declaration//GEN-END:variables
 }
